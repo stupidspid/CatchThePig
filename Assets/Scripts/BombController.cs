@@ -22,7 +22,7 @@ public class BombController : MonoBehaviour
         yield return new WaitForSeconds(3);
         _buttonManager.ActivateBomb?.Invoke();
         Damage();
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(0.1f);
         Destroy(gameObject);
     }
 
@@ -33,7 +33,6 @@ public class BombController : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        print("collision enter");
         Destroy(collision.gameObject);
     }
 }

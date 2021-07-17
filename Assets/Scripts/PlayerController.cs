@@ -1,10 +1,9 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
     [SerializeField] private Joystick _joystick;
+    [SerializeField] private GameObject _losePanel;
     private Rigidbody2D _playerRB; 
 
     private void Start()
@@ -37,5 +36,10 @@ public class PlayerController : MonoBehaviour
         {
             _playerRB.MovePosition(new Vector2(transform.position.x, transform.position.y - 3));
         }
+    }
+
+    private void OnDestroy()
+    {
+        _losePanel.SetActive(true);
     }
 }
