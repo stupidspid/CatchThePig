@@ -17,18 +17,15 @@ public class BombController : MonoBehaviour
 
     private IEnumerator BombExistingTime()
     {
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(GlobalConstants.BOMB_DEEFAULT_STATE);
         _bombAnimation.SetTrigger("Bomb");
-        yield return new WaitForSeconds(3);
-        _buttonManager.ActivateBomb?.Invoke();
-        Damage();
-        yield return new WaitForSeconds(0.1f);
-        Destroy(gameObject);
-    }
 
-    private void Damage()
-    {
-        gameObject.AddComponent<CircleCollider2D>().radius = 100;
+        yield return new WaitForSeconds(GlobalConstants.BOMB_PLACED_STATE);
+        _buttonManager.ActivateBomb?.Invoke();
+        gameObject.AddComponent<CircleCollider2D>().radius = GlobalConstants.BOMB_DAMAGE_RADIUS;
+
+        yield return new WaitForSeconds(GlobalConstants.BOMB_ATTACK_STATE);
+        Destroy(gameObject);
     }
 
     private void OnCollisionEnter2D(Collision2D collision)

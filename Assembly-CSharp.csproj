@@ -68,6 +68,7 @@
     <Compile Include="Assets\Joystick Pack\Examples\JoystickPlayerExample.cs" />
     <Compile Include="Assets\Scripts\BombController.cs" />
     <Compile Include="Assets\Scripts\ButtonManager.cs" />
+    <Compile Include="Assets\Scripts\GlobalConstants.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

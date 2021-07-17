@@ -13,28 +13,28 @@ public class PlayerController : MonoBehaviour
     void FixedUpdate()
     {
         if (Mathf.Abs(_joystick.Horizontal) > Mathf.Abs(_joystick.Vertical) && 
-            _joystick.Horizontal > 0.5f &&
-            transform.localPosition.x < 600)
+            _joystick.Horizontal > GlobalConstants.JOYSTICK_MOVE_FACTOR &&
+            transform.localPosition.x < GlobalConstants.SIDE_LIMIT)
         {
-            _playerRB.MovePosition(new Vector2(transform.position.x + 3, transform.position.y));
+            _playerRB.MovePosition(new Vector2(transform.position.x + GlobalConstants.PLAYER_MOVE_STEP, transform.position.y));
         }
         else if(Mathf.Abs(_joystick.Horizontal) > Mathf.Abs(_joystick.Vertical) &&
-            _joystick.Horizontal < -0.5f &&
-            transform.localPosition.x > -600)
+            _joystick.Horizontal < -GlobalConstants.JOYSTICK_MOVE_FACTOR &&
+            transform.localPosition.x > -GlobalConstants.SIDE_LIMIT)
         {
-            _playerRB.MovePosition(new Vector2(transform.position.x - 3, transform.position.y));
+            _playerRB.MovePosition(new Vector2(transform.position.x - GlobalConstants.PLAYER_MOVE_STEP, transform.position.y));
         }
         else if (Mathf.Abs(_joystick.Horizontal) < Mathf.Abs(_joystick.Vertical) && 
-            _joystick.Vertical > 0.5f &&
-            transform.localPosition.y < 350)
+            _joystick.Vertical > GlobalConstants.JOYSTICK_MOVE_FACTOR &&
+            transform.localPosition.y < GlobalConstants.UP_DOWN_LIMIT)
         {
-            _playerRB.MovePosition(new Vector2(transform.position.x, transform.position.y + 3));
+            _playerRB.MovePosition(new Vector2(transform.position.x, transform.position.y + GlobalConstants.PLAYER_MOVE_STEP));
         }
         else if (Mathf.Abs(_joystick.Horizontal) < Mathf.Abs(_joystick.Vertical) &&
-            _joystick.Vertical < -0.5f &&
-            transform.localPosition.y > -350)
+            _joystick.Vertical < -GlobalConstants.JOYSTICK_MOVE_FACTOR &&
+            transform.localPosition.y > -GlobalConstants.UP_DOWN_LIMIT)
         {
-            _playerRB.MovePosition(new Vector2(transform.position.x, transform.position.y - 3));
+            _playerRB.MovePosition(new Vector2(transform.position.x, transform.position.y - GlobalConstants.PLAYER_MOVE_STEP));
         }
     }
 

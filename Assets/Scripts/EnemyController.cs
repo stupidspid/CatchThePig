@@ -14,8 +14,9 @@ public class EnemyController : MonoBehaviour
     {
         while (true)
         {
-            yield return new WaitForSeconds(3f);
-            _enemyRB.velocity = new Vector2(Random.Range(-50, 50), Random.Range(-50, 50));
+            yield return new WaitForSeconds(GlobalConstants.ENEMY_WALKING_DELAY);
+            _enemyRB.velocity = new Vector2(Random.Range(-GlobalConstants.ENEMY_WALKING_RANGE, GlobalConstants.ENEMY_WALKING_RANGE), 
+                Random.Range(-GlobalConstants.ENEMY_WALKING_RANGE, GlobalConstants.ENEMY_WALKING_RANGE));
         }
     }
 
